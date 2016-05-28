@@ -1,0 +1,13 @@
+﻿@model  IEnumerable<ProjectHack.Models.CategoryElement>
+@{
+	ViewBag.Title = "Time manager";
+	Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<div class="col-md-offset-1 col-md-5">
+	<h2>Here are all our currently availble activies:</h2>
+
+	<ul>@Html.Raw(ProjectHack.Models.CategoryElement.GetHtmlListString(Model))</ul>
+
+</div>
+

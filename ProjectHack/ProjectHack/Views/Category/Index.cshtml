@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+@using ProjectHack.Models
+@model IEnumerable<MainCategory> 
+<h2>Categories</h2>
+<div class="row">
+	<div class="col-md-4">
+		
+		@foreach (var cat in Model)
+		{
+			<div class="panel panel-primary">
+				<a href="#">
+					<div class="panel-footer" onclick="this.nextSibling.style.display='block'">
+						<span class="pull-left">@cat.Title</span>
+						<span class="pull-right"><span class="glyphicon glyphicon-menu-down"></span></span>
+						<div class="clearfix"></div>
+						
+					</div>
+					<div >
+						@foreach (var subcat in cat.Elements)
+						{
+							using (@Html.BeginForm("AddtoDB", "Category", FormMethod.Post))
+							 {
+								 
+								 @Html.TextBox("catId", @subcat.Id, new { style = "display: none" })
+								 <input name="submit" type="submit" id="process" value="@subcat.Title" />
+							}
+						}
+					</div>
+				</a>
+			</div>
+			
+}
+
+	</div>
+	<div class="col-md-4">
+		<a href="/Category/AddCategory" class="btn btn-default home-form-submit">Add custom category</a>
+		
+	</div>
+</div>

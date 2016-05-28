@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Categories>
+  <Category Name="Programming" ID="1">
+    <Category Name="C#" ID="1.1" time-period-in-days="7">
+      <Topic>Types and Variables</Topic>
+      <Topic>Operators and Expressions</Topic>
+      <Topic>Console Input and Output</Topic>
+      <Topic>Conditional Statement</Topic>
+      <Topic>Loops</Topic>
+      <Topic>Arrays</Topic>
+      <Topic>Methods</Topic>
+      <Topic>Reccursion</Topic>
+      <Topic>Objects</Topic>
+      <Topic>Exceptions</Topic>
+      <Topic>Classes</Topic>
+    </Category>
+  </Category>
+	<Category Name="Biology" ID="2">
+		<Category Name="Botanics" ID="2.1">
+		</Category>
+		<Category Name="Legs" ID="2.1">
+		</Category>
+	</Category>
+	<Category Name="Chemistry" ID="3">
+		<Category Name="Alcals" ID="3.1">
+			
+		</Category>
+	</Category>
+	<Category Name="Hostory" ID="4">
+		<Category Name="World War II" ID="4.1">
+			
+		</Category>
+	</Category>
+</Categories>

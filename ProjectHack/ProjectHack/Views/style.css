@@ -1,0 +1,20 @@
+﻿.home-form-item{
+    width: 60%;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 4px 0px;
+    color: black;
+}
+
+.home-form-submit{
+    width: 60%;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 4px 0px;
+}
+.home-form-checkbox {
+	color: black;
+	margin-right: 5px;
+}

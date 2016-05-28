@@ -1,0 +1,44 @@
+﻿@using ProjectHack.Models
+@model IEnumerable<MainCategory>
+@{
+    ViewBag.Title = "Activities";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<h2>Activities</h2>
+
+<div class="row">
+	<div class="col-md-4">
+
+		@foreach (var act in Model)
+		{
+			<div class="panel panel-primary">
+				<a href="#">
+					<div class="panel-footer" onclick="this.nextSibling.style.display='block'">
+						<span class="pull-left">@act.Title</span>
+						<span class="pull-right"><span class="glyphicon glyphicon-menu-down"></span></span>
+						<div class="clearfix"></div>
+
+					</div>
+					<div>
+						@foreach (var subact in act.Elements)
+						{
+							using (@Html.BeginForm("AddActivityToDB", "Activity", FormMethod.Post))
+							{
+
+								@Html.TextBox("actId", @subact.Id, new { style = "display: none" })
+								<input name="submit" type="submit" id="process" value="@subact.Title" />
+							}
+						}
+					</div>
+				</a>
+			</div>
+
+		}
+
+	</div>
+	<div class="col-md-4">
+		<a href="/Activity/AddActivity" class="btn btn-default home-form-submit">Add custom activity</a>
+
+	</div>
+</div>

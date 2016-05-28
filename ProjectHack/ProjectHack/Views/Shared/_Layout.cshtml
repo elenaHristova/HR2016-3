@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+ <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@ViewBag.Title</title>
+	<meta name="description" content="company is a free job board template">
+	<meta name="author" content="Ohidul">
+	<meta name="keyword" content="html, css, bootstrap, job-board">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+	<link rel="stylesheet" href="~/Views/Shared/mainLayout/css/normalize.css">
+	<link rel="stylesheet" href="~/Views/Shared/mainLayout/css/font-awesome.min.css">
+	<link rel="stylesheet" href="~/Views/Shared/mainLayout/css/fontello.css">
+	<link rel="stylesheet" href="~/Views/Shared/mainLayout/css/animate.css">
+	<link rel="stylesheet" href="~/Views/Shared/mainLayout/css/bootstrap.min.css">
+	<link rel="stylesheet" href="~/Views/Shared/mainLayout/css/owl.carousel.css">
+	<link rel="stylesheet" href="~/Views/Shared/mainLayout/css/owl.theme.css">
+	<link rel="stylesheet" href="~/Views/Shared/mainLayout/css/owl.transitions.css">
+	<link rel="stylesheet" href="~/Views/Shared/mainLayout/style.css">
+	<link rel="stylesheet" href="~/Views/Shared/mainLayout/responsive.css">
+    <link rel="stylesheet" href="~/Views/style.css">
+</head>
+<body>
+
+	<div id="preloader">
+		<div id="status">&nbsp;</div>
+	</div>
+	<!-- Body content -->
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/Home/Index">SmartMe</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="main-nav nav navbar-nav navbar-right">
+					<li class="wow fadeInDown" data-wow-delay="0s"><a class="active" href="/Home/Index">Home</a></li>
+					<li class="wow fadeInDown" data-wow-delay="0.3s"><a href="/Home/About">About us</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	@RenderBody()
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="~/Views/Shared/mainLayout/js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+	<script src="~/Views/Shared/mainLayout/js/bootstrap.min.js"></script>
+	<script src="~/Views/Shared/mainLayout/js/owl.carousel.min.js"></script>
+	<script src="~/Views/Shared/mainLayout/js/wow.js"></script>
+    <script src="~/Views/Shared/mainLayout/js/main.js"></script>
+	<script src="~/Views/script.js"></script>
+</body>
+</html>
