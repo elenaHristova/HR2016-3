@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -42,36 +43,50 @@ namespace ProjectHack.Controllers
                 //var categoryId = db.Categories.Where(cat => cat.CategoryId == categoryId).FirstOrDefault();
             }
 
-            List<string> activities = currentUser.Activities?.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            //List<int> categoriesId = new List<int>();
-            List<string> actTitles = new List<string>();
-            if (activities == null)
-            {
-                ViewBag.ActivityTitles = actTitles;
-                return View(catTitles);
-            }
-            var activitiesXml = CategoryElement.GetElementsFromFile(Server.MapPath(@"~/App_Data/Activities.xml"), "Activities", "Activity").Cast<MainCategory>();
-            //for (int i = 0; i<categories.Count; i++)
-            //      {
-            //       categoriesId.Add(Convert.ToInt32(categories[i]));
-            //      }
-            //categories.Clear();
-            foreach (var activity in activitiesXml.Select(c => c.Elements).SelectMany(i => i))
-            {
-                foreach (var dbActs in activities)
-                {
-                    if (dbActs == activity.Id) catTitles.Add(activity.Title);
-                }
-                //var categoryId = db.Categories.Where(cat => cat.CategoryId == categoryId).FirstOrDefault();
-            }
-            ViewBag.ActivityTitles = actTitles;
-            return View(catTitles);
+			List<string> activities = currentUser.Activities?.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+			//List<int> categoriesId = new List<int>();
+			List<string> actTitles = new List<string>();
+	        if (activities==null)
+	        {
+				ViewBag.ActivityTitles = actTitles;
+				return View(catTitles);
+	        }
+			var activitiesXml = CategoryElement.GetElementsFromFile(Server.MapPath(@"~/App_Data/Activities.xml"), "Activities", "Activity").Cast<MainCategory>();
+			//for (int i = 0; i<categories.Count; i++)
+			//      {
+			//       categoriesId.Add(Convert.ToInt32(categories[i]));
+			//      }
+			//categories.Clear();
+			foreach (var activity in activitiesXml.Select(c => c.Elements).SelectMany(i => i))
+			{
+				foreach (var dbActs in activities)
+				{
+					if (dbActs == activity.Id) catTitles.Add(activity.Title);
+				}
+				//var categoryId = db.Categories.Where(cat => cat.CategoryId == categoryId).FirstOrDefault();
+			}
+	        string fact = GenerateRandomLineFromFile("interestingFacts.txt");
+	        string quote = GenerateRandomLineFromFile("motivationalQuotes.txt");
+	        ViewBag.Fact = fact;
+	        ViewBag.Quote = quote;
+			ViewBag.ActivityTitles = actTitles;
+			return View(catTitles);
         }
 
-        public ActionResult NewUser()
-        {
-            return View();
-        }
+	    private string GenerateRandomLineFromFile(string fileName)
+	    {
+			string path = Server.MapPath("~/App_Data/"+fileName);
+			var lines = System.IO.File.ReadAllLines(path);
+			var r = new Random();
+			var randomLineNumber = r.Next(0, lines.Length - 1);
+			var line = lines[randomLineNumber];
+			return line;
+		}
+
+	    public ActionResult NewUser()
+	    {
+			return View();
+	    }
 
         [HttpPost]
         public ActionResult SaveNewUser(string txtFullname, string txtAge, string gender)

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<h2>Set a goal</h2>
+<div class="row">
+	using (@Html.BeginForm("SetGoal", "Goal", FormMethod.Post))
+	{
+
+	@Html.TextBox("txtGoal", new { style = "display: none" })
+	<input name="submit" type="submit" id="process" value="Set a goal" />
+	}
+
+
+</div>
