@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -63,9 +64,23 @@ namespace ProjectHack.Controllers
 				}
 				//var categoryId = db.Categories.Where(cat => cat.CategoryId == categoryId).FirstOrDefault();
 			}
-	        ViewBag.ActivityTitles = actTitles;
+	        string fact = GenerateRandomLineFromFile("interestingFacts.txt");
+	        string quote = GenerateRandomLineFromFile("motivationalQuotes.txt");
+	        ViewBag.Fact = fact;
+	        ViewBag.Quote = quote;
+			ViewBag.ActivityTitles = actTitles;
 			return View(catTitles);
         }
+
+	    private string GenerateRandomLineFromFile(string fileName)
+	    {
+			string path = Server.MapPath("~/App_Data/"+fileName);
+			var lines = System.IO.File.ReadAllLines(path);
+			var r = new Random();
+			var randomLineNumber = r.Next(0, lines.Length - 1);
+			var line = lines[randomLineNumber];
+			return line;
+		}
 
 	    public ActionResult NewUser()
 	    {

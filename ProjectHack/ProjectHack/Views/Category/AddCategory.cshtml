@@ -17,17 +17,27 @@
 				<div class="form-group">
 
 					<div class="col-md-10">
-						@Html.Label("Title")
-						@Html.TextBox("txtTitle")
-						<br/>
-						@Html.Label("Topics")
-						<br />
-						@Html.TextBox("txtTopic")
-						<br />
-						@Html.TextBox("txtTopic1")
-						<br />
-						@Html.TextBox("txtTopic2")
-						@Html.ValidationMessageFor(model => model.Title, "", new {@class = "text-danger"})
+						<div class="row">
+							<div class="col-md-5">
+								@Html.Label("Title")
+								@Html.TextBox("txtTitle")
+								<br/>
+								@Html.Label("Topics")
+								<br/>
+								@Html.TextBox("txtTopic")
+								<br/>
+								@Html.TextBox("txtTopic1")
+								<br/>
+								@Html.TextBox("txtTopic2")
+								@Html.ValidationMessageFor(model => model.Title, "", new {@class = "text-danger"})
+								<input class="datefield" type="date" value=@DateTime.Today />  
+							</div>
+							<div class="col-md-5">
+								<h5>Recommended time in days: </h5>
+
+								<h4> Choose start and end date</h4>
+							</div>
+						</div>
 					</div>
 
 				</div>

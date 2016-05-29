@@ -132,31 +132,30 @@
     <Compile Include="Controllers\ActivityController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ChartController.cs" />
+    <Compile Include="Controllers\GoalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\TimeManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605280614438_Initial.cs" />
-    <Compile Include="Migrations\201605280614438_Initial.Designer.cs">
-      <DependentUpon>201605280614438_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201605290818202_InitialCreate.cs" />
+    <Compile Include="Migrations\201605290818202_InitialCreate.Designer.cs">
+      <DependentUpon>201605290818202_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605280932071_TimePeriodInDays.cs" />
-    <Compile Include="Migrations\201605280932071_TimePeriodInDays.Designer.cs">
-      <DependentUpon>201605280932071_TimePeriodInDays.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605281635470_Added Activities property to User class.cs" />
-    <Compile Include="Migrations\201605281635470_Added Activities property to User class.Designer.cs">
-      <DependentUpon>201605281635470_Added Activities property to User class.cs</DependentUpon>
+    <Compile Include="Migrations\201605290821150_Goals Id.cs" />
+    <Compile Include="Migrations\201605290821150_Goals Id.Designer.cs">
+      <DependentUpon>201605290821150_Goals Id.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CategoryElement.cs" />
+    <Compile Include="Models\Goal.cs" />
     <Compile Include="Models\MainCategory.cs" />
     <Compile Include="Models\PersonalInfo.cs" />
     <Compile Include="Models\ProjectHackContext.cs" />
     <Compile Include="Models\ProjectHackContextInitializer.cs" />
+    <Compile Include="Models\TimePeriod.cs" />
     <Compile Include="Models\Topic.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -165,6 +164,8 @@
     <Content Include="App_Data\Activities.xml" />
     <Content Include="App_Data\Categories.xml" />
     <Content Include="App_Data\elena.txt" />
+    <Content Include="App_Data\interestingFacts.txt" />
+    <Content Include="App_Data\motivationalQuotes.txt" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -174,9 +175,15 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\DatePickerReady.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <None Include="Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.4.js" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\jquery.ui.core.js" />
+    <Content Include="Scripts\jquery.ui.core.min.js" />
+    <Content Include="Scripts\jquery.ui.datepicker.js" />
+    <Content Include="Scripts\jquery.ui.datepicker.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -1007,6 +1014,7 @@
     <Content Include="Views\TimeManage\Index.cshtml" />
     <Content Include="Views\Activity\Index.cshtml" />
     <Content Include="Views\Activity\AddActivity.cshtml" />
+    <Content Include="Views\Goal\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Profile\" />
@@ -1017,17 +1025,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605280614438_Initial.resx">
-      <DependentUpon>201605280614438_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605290818202_InitialCreate.resx">
+      <DependentUpon>201605290818202_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605280932071_TimePeriodInDays.resx">
-      <DependentUpon>201605280932071_TimePeriodInDays.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605281635470_Added Activities property to User class.resx">
-      <DependentUpon>201605281635470_Added Activities property to User class.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605290821150_Goals Id.resx">
+      <DependentUpon>201605290821150_Goals Id.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
