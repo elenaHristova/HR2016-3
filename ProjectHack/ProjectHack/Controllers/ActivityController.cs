@@ -8,6 +8,7 @@ using ProjectHack.Models;
 
 namespace ProjectHack.Controllers
 {
+    [Authorize]
     public class ActivityController : Controller
     {
 		ProjectHackContext db = new ProjectHackContext();

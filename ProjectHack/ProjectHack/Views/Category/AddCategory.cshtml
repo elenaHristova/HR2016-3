@@ -7,39 +7,37 @@
 
 <h2>Add Category</h2>
 
-@using (Html.BeginForm("SaveCategory", "Category", FormMethod.Post)) 
+@using (Html.BeginForm("SaveCategory", "Category", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-	<div class="row">
-		<div class="col-md-offset-2 col-md-8 col-md-offset-2">
-			<div class="form-horizontal">
-				<h4>Custom Category</h4>
-				<div class="form-group">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8 col-md-offset-2">
+            <div class="form-horizontal">
+                <h4>Category</h4>
+                @using (Html.BeginForm("SaveCategory", "Account", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.TextBox("txtTitle", "", new { placeholder = "Title" })
+                            <br />
+                            @Html.Label("Topics")
+                            <br />
+                            @Html.TextBox("topics", "", new { style = "display: block;" })
+                            <a href="#" onclick="this.parentElement.insertBefore(this.previousElementSibling.cloneNode(false), this)">Add Topic</a>
+                            <br />
+                        </div>
+                    </div>
 
-					<div class="col-md-10">
-						@Html.Label("Title")
-						@Html.TextBox("txtTitle")
-						<br/>
-						@Html.Label("Topics")
-						<br />
-						@Html.TextBox("txtTopic")
-						<br />
-						@Html.TextBox("txtTopic1")
-						<br />
-						@Html.TextBox("txtTopic2")
-						@Html.ValidationMessageFor(model => model.Title, "", new {@class = "text-danger"})
-					</div>
-
-				</div>
-
-				<div class="form-group">
-					<div class="col-md-offset-2 col-md-10">
-						<input type="submit" value="Save category" class="btn btn-default" />
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save category" class="btn btn-default" />
+                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
 }
 
 <div>

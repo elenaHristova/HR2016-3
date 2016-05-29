@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace ProjectHack.Controllers
 {
+    [Authorize]
     public class ProfileController : Controller
     {
         // GET: Profile

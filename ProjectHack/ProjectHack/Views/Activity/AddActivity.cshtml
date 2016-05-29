@@ -1,47 +1,50 @@
 ﻿@model ProjectHack.Models.Category
 
 @{
-	ViewBag.Title = "Add Activity";
-	Layout = "~/Views/Shared/_AccountLayout.cshtml";
+    ViewBag.Title = "Add Category";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
 
-<h2>Add Activity</h2>
+<h2>Add Category</h2>
 
-@using (Html.BeginForm("SaveActivity", "Activity", FormMethod.Post))
+@using (Html.BeginForm("SaveCategory", "Category", FormMethod.Post))
 {
-	@Html.AntiForgeryToken()
-	<div class="row">
-		<div class="col-md-offset-2 col-md-8 col-md-offset-2">
-			<div class="form-horizontal">
-				<h4>Custom Activity</h4>
-				<div class="form-group">
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8 col-md-offset-2">
+            <div class="form-horizontal">
+                <h4>Category</h4>
+                @using (Html.BeginForm("SaveCategory", "Account", FormMethod.Post))
+                {
+                    <div class="form-group">
 
-					<div class="col-md-10">
-						@Html.Label("Title")
-						@Html.TextBox("txtTitle")
-						<br />
-						@Html.Label("Topics")
-						<br />
-						@Html.TextBox("txtTopic")
-						<br />
-						@Html.TextBox("txtTopic1")
-						<br />
-						@Html.TextBox("txtTopic2")
-						@Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-					</div>
+                        <div class="col-md-10">
 
-				</div>
+                            @Html.Label("Title")
+                            @Html.TextBox("txtTitle")
+                            <br />
+                            @Html.Label("Topics")
+                            <br />
+                            @Html.TextBox("topics", "", new { style = "display: block;" })
+                            <a href="#" onclick="this.parentElement.insertBefore(this.previousElementSibling.cloneNode(false), this)">+</a>
+                            <br />
 
-				<div class="form-group">
-					<div class="col-md-offset-2 col-md-10">
-						<input type="submit" value="Save category" class="btn btn-default" />
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save category" class="btn btn-default" />
+                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
 }
 
 <div>
-	@Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index")
 </div>

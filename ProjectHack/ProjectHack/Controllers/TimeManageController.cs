@@ -10,6 +10,7 @@ using ProjectHack.Models;
 
 namespace ProjectHack.Controllers
 {
+    [Authorize]
 	public class TimeManageController : Controller
 	{
 		public ActionResult Index()
